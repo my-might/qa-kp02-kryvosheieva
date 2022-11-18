@@ -1,4 +1,5 @@
 class Directory:
+    children = []
     def __init__(self, dirName, maxElements = 0, father = None):
         return
     
