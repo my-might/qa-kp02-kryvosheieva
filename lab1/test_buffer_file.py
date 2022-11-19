@@ -2,44 +2,47 @@ from nodes.directory import Directory
 from nodes.buffer_file import BufferFile
 
 class TestBufferFile:
-    rootDirectory = Directory('root', 10)
 
     def test_initBufferFile(self):
+        rootDirectory = Directory('root', 10)
         name = 'test_buffer'
         maxSize = 5
-        bufferFile = BufferFile(name, maxSize, self.rootDirectory)
+        bufferFile = BufferFile(name, maxSize, rootDirectory)
 
         assert bufferFile.name == name
         assert bufferFile.queue == []
-        assert bufferFile.father == self.rootDirectory
+        assert bufferFile.father == rootDirectory
         assert bufferFile.MAX_BUF_FILE_SIZE == maxSize
-        assert self.rootDirectory.children.__contains__(bufferFile)
+        assert rootDirectory.children.__contains__(bufferFile)
 
     def test_deleteBufferFile(self):
+        rootDirectory = Directory('root', 10)
         name = 'test_buffer'
         maxSize = 5
-        bufferFile = BufferFile(name, maxSize, self.rootDirectory)
+        bufferFile = BufferFile(name, maxSize, rootDirectory)
 
         bufferFile.delete()
 
-        assert not self.rootDirectory.children.__contains__(bufferFile)
+        assert not rootDirectory.children.__contains__(bufferFile)
 
     def test_moveBufferFile(self):
-        firstDirectory = Directory('first', 1, self.rootDirectory)
+        rootDirectory = Directory('root', 10)
+        firstDirectory = Directory('first', 1, rootDirectory)
 
         name = 'test_buffer'
         maxSize = 5
-        bufferFile = BufferFile(name, maxSize, self.rootDirectory)
+        bufferFile = BufferFile(name, maxSize, rootDirectory)
 
-        bufferFile.move(self.rootDirectory)
+        bufferFile.move(rootDirectory)
 
         assert not firstDirectory.children.__contains__(bufferFile)
-        assert self.rootDirectory.children.__contains__(bufferFile)
+        assert rootDirectory.children.__contains__(bufferFile)
     
     def test_pushConsumeBufferFile(self):
+        rootDirectory = Directory('root', 10)
         name = 'test_buffer'
         maxSize = 5
-        bufferFile = BufferFile(name, maxSize, self.rootDirectory)
+        bufferFile = BufferFile(name, maxSize, rootDirectory)
 
         lineToPush = 'info to add in buffer file)'
         bufferFile.pushElement(lineToPush)

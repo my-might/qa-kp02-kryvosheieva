@@ -3,13 +3,17 @@ class Directory:
         self.name = dirName
         self.DIR_MAX_ELEMS = maxElements
         self.father = father
+        if father != None:
+            if (self.father.DIR_MAX_ELEMS == len(self.father.children)):
+                raise SystemError('Father directory ', father.name, ' is full')
+            self.father.children.append(self)
         self.children = []
-        print('directory %s created!', self.name)
+        print('directory ', self.name,' created!')
     
     def delete(self):
         if self.father != None:
             self.father.children.remove(self)
-        print('directory %s deleted!', self.name)
+        print('directory ', self.name,' deleted!')
         return
 
     def listContent(self):
@@ -18,20 +22,20 @@ class Directory:
     def move(self, node, path):
         if not self.children.__contains__(node):
             raise SystemError("Directory doesn't contain entered node") 
-        if (path.children.count() == path.DIR_MAX_ELEMS):
-            raise SystemError('Target directory is full')
+        if (len(path.children) == path.DIR_MAX_ELEMS):
+            raise SystemError('Target directory ', path.name, ' is full')
         self.children.remove(node)
         node.father = path
         path.children.append(node)
-        print('element %s moved!', node.name)
+        print('element ', self.name,' moved to ', path.name, '!')
         return
 
     def moveSelf(self, path):
-        if (path.children.count() == path.DIR_MAX_ELEMS):
-            raise SystemError('Target directory is full')
+        if (len(path.children) == path.DIR_MAX_ELEMS):
+            raise SystemError('Target directory ', path.name, ' is full')
         if self.father != None:
             self.father.children.remove(self)
         self.father = path
         path.children.append(self)
-        print('directory %s moved!', self.name)
+        print('directory ', self.name,' moved to ', path.name, '!')
         return

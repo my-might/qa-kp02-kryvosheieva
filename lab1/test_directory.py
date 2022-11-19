@@ -29,7 +29,9 @@ class TestDirectory:
 
         newDirectory = Directory('new', 1, rootDirectory)
 
-        assert rootDirectory.listContent == [newDirectory]
+        content = rootDirectory.listContent()
+
+        assert content == [newDirectory]
 
     def test_moveDirectory(self):
         name = 'root'
