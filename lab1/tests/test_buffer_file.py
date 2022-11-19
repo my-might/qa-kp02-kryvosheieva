@@ -10,7 +10,7 @@ class TestBufferFile:
         bufferFile = BufferFile(name, maxSize, self.rootDirectory)
 
         assert bufferFile.name == name
-        assert bufferFile.info == ''
+        assert bufferFile.queue == []
         assert bufferFile.father == self.rootDirectory
         assert bufferFile.MAX_BUF_FILE_SIZE == maxSize
         assert self.rootDirectory.children.__contains__(bufferFile)
@@ -44,5 +44,5 @@ class TestBufferFile:
         lineToPush = 'info to add in buffer file)'
         bufferFile.pushElement(lineToPush)
 
-        assert bufferFile.info == lineToPush
+        assert bufferFile.queue.__contains__(lineToPush)
         assert bufferFile.consumeElement() == lineToPush
