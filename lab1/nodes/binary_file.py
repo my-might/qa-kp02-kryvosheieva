@@ -3,11 +3,17 @@ class BinaryFile:
         self.name = fileName
         self.father = father
         self.info = info
+        self.father.children.append(self)
+        if father != None:
+            self.father.children.append(self)
         print('binary file %s created!', self.name)
     
     def delete(self):
         if self.father != None:
+            print('here')
+            print(self)
             self.father.children.remove(self)
+            print(self.father.children)
         print('binary file %s deleted!', self.name)
         return
 

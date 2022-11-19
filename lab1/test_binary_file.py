@@ -1,43 +1,48 @@
-from nodes.directory import Directory
 from nodes.binary_file import BinaryFile
+from nodes.directory import Directory
 
 class TestBinaryFile:
-    rootDirectory = Directory('root', 10)
 
     def test_initBinaryFile(self):
+        rootDirectory = Directory('root', 10)
         name = 'test_binary'
         fileInfo = 'test info for binary file!!!'
-        binaryFile = BinaryFile(name, self.rootDirectory, fileInfo)
+        binaryFile = BinaryFile(name, rootDirectory, fileInfo)
 
         assert binaryFile.name == name
-        assert binaryFile.father == self.rootDirectory
+        assert binaryFile.father == rootDirectory
         assert binaryFile.info == fileInfo
-        assert self.rootDirectory.children.__contains__(binaryFile)
+        assert binaryFile in rootDirectory.children
 
     def test_deleteBinaryFile(self):
+        rootDirectory = Directory('root', 10)
         name = 'test_binary'
         fileInfo = 'test info for binary file!!!'
-        binaryFile = BinaryFile(name, self.rootDirectory, fileInfo)
+        binaryFile = BinaryFile(name, rootDirectory, fileInfo)
 
         binaryFile.delete()
 
-        assert not self.rootDirectory.children.__contains__(binaryFile)
+        print(rootDirectory.children)
+        print(binaryFile)
+        assert not binaryFile in rootDirectory.children
 
     def test_readBinaryFile(self):
+        rootDirectory = Directory('root', 10)
         name = 'test_binary'
         fileInfo = 'test info for binary file!!!'
-        binaryFile = BinaryFile(name, self.rootDirectory, fileInfo)
+        binaryFile = BinaryFile(name, rootDirectory, fileInfo)
 
         assert binaryFile.readFile() == fileInfo
 
     def test_moveBinaryFile(self):
-        firstDirectory = Directory('first', 1, self.rootDirectory)
+        rootDirectory = Directory('root', 10)
+        firstDirectory = Directory('first', 1, rootDirectory)
 
         name = 'test_binary'
         fileInfo = 'test info for binary file!!!'
         binaryFile = BinaryFile(name, firstDirectory, fileInfo)
 
-        binaryFile.move(self.rootDirectory)
+        binaryFile.move(rootDirectory)
 
         assert not firstDirectory.children.__contains__(binaryFile)
-        assert self.rootDirectory.children.__contains__(binaryFile)
+        assert rootDirectory.children.__contains__(binaryFile)

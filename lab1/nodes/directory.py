@@ -1,9 +1,9 @@
 class Directory:
-    children = []
     def __init__(self, dirName, maxElements = 0, father = None):
         self.name = dirName
         self.DIR_MAX_ELEMS = maxElements
         self.father = father
+        self.children = []
         print('directory %s created!', self.name)
     
     def delete(self):

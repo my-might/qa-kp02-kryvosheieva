@@ -4,6 +4,8 @@ class BufferFile:
         self.MAX_BUF_FILE_SIZE = maxSize
         self.father = father
         self.queue = []
+        if father != None:
+            self.father.children.append(self)
         print('buffer file %s created!', self.name)
     
     def delete(self):

@@ -3,6 +3,8 @@ class LogTextFile:
         self.name = fileName
         self.father = father
         self.info = ''
+        if father != None:
+            self.father.children.append(self)
         print('log text file %s created!', self.name)
     
     def delete(self):
