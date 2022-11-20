@@ -21,10 +21,9 @@ class TestBinaryFile:
         binaryFile = BinaryFile(name, rootDirectory, fileInfo)
 
         binaryFile.delete()
+        del binaryFile
 
-        print(rootDirectory.children)
-        print(binaryFile)
-        assert not binaryFile in rootDirectory.children
+        assert 'binaryFile' not in locals()
 
     def test_readBinaryFile(self):
         rootDirectory = Directory('root', 10)

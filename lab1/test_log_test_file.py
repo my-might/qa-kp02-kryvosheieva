@@ -19,8 +19,9 @@ class TestLogTextFile:
         logTextFile = LogTextFile(name, rootDirectory)
 
         logTextFile.delete()
+        del logTextFile
 
-        assert not rootDirectory.children.__contains__(logTextFile)
+        assert 'logTextFile' not in locals()
 
     def test_readLogTextFile(self):
         rootDirectory = Directory('root', 10)

@@ -19,8 +19,9 @@ class TestDirectory:
         newDirectory = Directory('new', 1, rootDirectory)
 
         newDirectory.delete()
+        del newDirectory
 
-        assert not rootDirectory.children.__contains__(newDirectory)
+        assert 'newDirectory' not in locals()
 
     def test_listDirectoryContent(self):
         name = 'root'

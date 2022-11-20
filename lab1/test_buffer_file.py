@@ -22,8 +22,9 @@ class TestBufferFile:
         bufferFile = BufferFile(name, maxSize, rootDirectory)
 
         bufferFile.delete()
+        del bufferFile
 
-        assert not rootDirectory.children.__contains__(bufferFile)
+        assert 'bufferFile' not in locals()
 
     def test_moveBufferFile(self):
         rootDirectory = Directory('root', 10)
