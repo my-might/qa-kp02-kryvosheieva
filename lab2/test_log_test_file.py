@@ -22,6 +22,7 @@ class TestLogTextFile:
         del logTextFile
 
         assert 'logTextFile' not in locals()
+        assert not rootDirectory.children.__contains__(logTextFile)
 
     def test_readLogTextFile(self):
         rootDirectory = Directory('root', 10)

@@ -24,6 +24,7 @@ class TestBinaryFile:
         del binaryFile
 
         assert 'binaryFile' not in locals()
+        assert not rootDirectory.children.__contains__(binaryFile)
 
     def test_readBinaryFile(self):
         rootDirectory = Directory('root', 10)
