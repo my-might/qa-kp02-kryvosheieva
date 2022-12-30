@@ -10,11 +10,11 @@ binaryFile = BinaryFile(name, rootDirectory, fileInfo)
 
 @app.route('/directory', methods=['GET'])
 def directory_get_all():
-    return 200
+    return
 
 @app.route('/directory', methods=['POST'])
 def directory_post():
-    return 501
+    return
 
 @app.route('/directory', methods=['DELETE'])
 def directory_delete():
