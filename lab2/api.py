@@ -9,78 +9,78 @@ fileInfo = 'test info for binary file!!!'
 binaryFile = BinaryFile(name, rootDirectory, fileInfo)
 
 @app.route('/directory', methods=['GET'])
-def directoryGetAll():
-    return
+def directory_get_all():
+    return 200
 
 @app.route('/directory', methods=['POST'])
-def directoryGetAll():
-    return
+def directory_post():
+    return 501
 
 @app.route('/directory', methods=['DELETE'])
-def directoryGetAll():
+def directory_delete():
     return
 
 @app.route('/directory', methods=['PATCH'])
-def directoryGetAll():
+def directory_patch():
     return
 
 
 @app.route('/binaryfile', methods=['GET'])
-def directoryGetAll():
+def binaryfile_get():
     return
 
 @app.route('/binaryfile', methods=['POST'])
-def directoryGetAll():
+def binaryfile_post():
     return
 
 @app.route('/binaryfile', methods=['DELETE'])
-def directoryGetAll():
+def binaryfile_delete():
     return
 
 @app.route('/binaryfile', methods=['PATCH'])
-def directoryGetAll():
+def binaryfile_patch():
     return
 
 
 @app.route('/logtextfile', methods=['GET'])
-def directoryGetAll():
+def logtextfile_get():
     return
 
 @app.route('/logtextfile', methods=['POST'])
-def directoryGetAll():
+def logtextfile_post():
     return
 
 @app.route('/logtextfile', methods=['DELETE'])
-def directoryGetAll():
+def logtextfile_delete():
     return
 
 @app.route('/logtextfile', methods=['PUT'])
-def directoryGetAll():
+def logtextfile_put():
     return
 
 @app.route('/logtextfile', methods=['PATCH'])
-def directoryGetAll():
+def logtextfile_patch():
     return
 
 
 @app.route('/bufferfile', methods=['GET'])
-def directoryGetAll():
+def bufferfile_get():
     return
 
 @app.route('/bufferfile', methods=['POST'])
-def directoryGetAll():
+def bufferfile_post():
     return
 
 @app.route('/bufferfile', methods=['DELETE'])
-def directoryGetAll():
+def bufferfile_delete():
     return
 
 @app.route('/bufferfile', methods=['PUT'])
-def directoryGetAll():
+def bufferfile_put():
     return
 
 @app.route('/bufferfile', methods=['PATCH'])
-def directoryGetAll():
+def bufferfile_patch():
     return
  
 if __name__ == '__main__':
