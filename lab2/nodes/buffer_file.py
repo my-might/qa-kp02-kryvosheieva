@@ -1,6 +1,8 @@
 class BufferFile:
     def __init__(self, fileName, maxSize = 0, father = None):
         self.name = fileName
+        if int(maxSize) < 0:
+            raise SystemError('Max size must be a positive number')
         self.MAX_BUF_FILE_SIZE = maxSize
         self.father = father
         self.queue = []

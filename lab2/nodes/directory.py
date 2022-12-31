@@ -1,6 +1,8 @@
 class Directory:
     def __init__(self, dirName, maxElements = 0, father = None):
         self.name = dirName
+        if int(maxElements) < 0:
+            raise SystemError('Dir max elems must be a positive number')
         self.DIR_MAX_ELEMS = maxElements
         self.father = father
         if father != None:
@@ -27,7 +29,7 @@ class Directory:
         self.children.remove(node)
         node.father = path
         path.children.append(node)
-        print('element ', self.name,' moved to ', path.name, '!')
+        print('element ', node.name,' moved to ', path.name, '!')
         return
 
     def moveSelf(self, path):

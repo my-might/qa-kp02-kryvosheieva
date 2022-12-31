@@ -29,5 +29,7 @@ class LogTextFile:
         return
 
     def appendLine(self, lineToAdd):
+        print(lineToAdd)
+        print(self.info + lineToAdd)
         self.info = self.info + lineToAdd
         return
