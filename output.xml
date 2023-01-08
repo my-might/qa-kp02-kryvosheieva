@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.8 on darwin)" generated="20221231 11:30:34.604" rpa="false" schemaversion="3">
+<suite id="s1" name="LogTextTestSuite" source="/Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab2/tests/LogTextTestSuite.robot">
+<test id="s1-t1" name="User should be able to create log text file" line="9">
+<kw name="Create Logtext File" library="LogTextKeywords">
+<arg>root</arg>
+<arg>LogtextTestCreate</arg>
+<kw name="Create New Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${name}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.652" endtime="20221231 11:30:34.660"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.652" endtime="20221231 11:30:34.660"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.660" endtime="20221231 11:30:34.660"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.652" endtime="20221231 11:30:34.660"/>
+</test>
+<test id="s1-t2" name="User should be able to move file" line="13">
+<kw name="Create Directory" library="DirectoryKeywords">
+<arg>root</arg>
+<arg>DirLogtextTestMove</arg>
+<arg>100</arg>
+<kw name="Create New Directory" library="DirectoryLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${name}</arg>
+<arg>${path}</arg>
+<arg>${max_elements}</arg>
+<status status="PASS" starttime="20221231 11:30:34.660" endtime="20221231 11:30:34.663"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.660" endtime="20221231 11:30:34.663"/>
+</kw>
+<kw name="Create Logtext File" library="LogTextKeywords">
+<arg>root</arg>
+<arg>LogtextTestMove</arg>
+<kw name="Create New Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${name}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.663" endtime="20221231 11:30:34.665"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.663" endtime="20221231 11:30:34.665"/>
+</kw>
+<kw name="Move Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestMove</arg>
+<arg>root/DirLogtextTestMove</arg>
+<kw name="Move Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${move_from}</arg>
+<arg>${move_to}</arg>
+<status status="PASS" starttime="20221231 11:30:34.665" endtime="20221231 11:30:34.667"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.665" endtime="20221231 11:30:34.667"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.667" endtime="20221231 11:30:34.667"/>
+</kw>
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestMove</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.667" endtime="20221231 11:30:34.669"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.667" endtime="20221231 11:30:34.669"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>404</arg>
+<status status="PASS" starttime="20221231 11:30:34.669" endtime="20221231 11:30:34.670"/>
+</kw>
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/DirLogtextTestMove/LogtextTestMove</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.670" endtime="20221231 11:30:34.672"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.670" endtime="20221231 11:30:34.672"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.672" endtime="20221231 11:30:34.672"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.660" endtime="20221231 11:30:34.672"/>
+</test>
+<test id="s1-t3" name="User should be abble to append a line to the end of the file" line="23">
+<kw name="Create Logtext File" library="LogTextKeywords">
+<arg>root</arg>
+<arg>LogtextTestAppend</arg>
+<kw name="Create New Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${name}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.672" endtime="20221231 11:30:34.675"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.672" endtime="20221231 11:30:34.675"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.675" endtime="20221231 11:30:34.675"/>
+</kw>
+<kw name="Append Line To Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>root/LogtextTestAppend</arg>
+<arg>TestAppend</arg>
+<status status="PASS" starttime="20221231 11:30:34.675" endtime="20221231 11:30:34.677"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.677" endtime="20221231 11:30:34.677"/>
+</kw>
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestAppend</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.678" endtime="20221231 11:30:34.680"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.678" endtime="20221231 11:30:34.680"/>
+</kw>
+<kw name="Logtext Content Should Be" library="LogTextLibrary">
+<arg>TestAppend</arg>
+<status status="PASS" starttime="20221231 11:30:34.681" endtime="20221231 11:30:34.681"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.681" endtime="20221231 11:30:34.681"/>
+</kw>
+<kw name="Append Line To Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>root/LogtextTestAppend</arg>
+<arg>/TestAppend2</arg>
+<status status="PASS" starttime="20221231 11:30:34.681" endtime="20221231 11:30:34.683"/>
+</kw>
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestAppend</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.683" endtime="20221231 11:30:34.685"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.683" endtime="20221231 11:30:34.685"/>
+</kw>
+<kw name="Logtext Content Should Be" library="LogTextLibrary">
+<arg>TestAppend/TestAppend2</arg>
+<status status="PASS" starttime="20221231 11:30:34.685" endtime="20221231 11:30:34.685"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.685" endtime="20221231 11:30:34.685"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.672" endtime="20221231 11:30:34.686"/>
+</test>
+<test id="s1-t4" name="User should be able to delete file" line="36">
+<kw name="Create Logtext File" library="LogTextKeywords">
+<arg>root</arg>
+<arg>LogtextTestDelete</arg>
+<kw name="Create New Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${name}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.686" endtime="20221231 11:30:34.688"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.686" endtime="20221231 11:30:34.688"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.688" endtime="20221231 11:30:34.688"/>
+</kw>
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestDelete</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.689" endtime="20221231 11:30:34.690"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.688" endtime="20221231 11:30:34.691"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.691" endtime="20221231 11:30:34.691"/>
+</kw>
+<kw name="Delete Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestDelete</arg>
+<kw name="Delete Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.691" endtime="20221231 11:30:34.694"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.691" endtime="20221231 11:30:34.694"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.694" endtime="20221231 11:30:34.694"/>
+</kw>
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestDelete</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.694" endtime="20221231 11:30:34.696"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.694" endtime="20221231 11:30:34.697"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>404</arg>
+<status status="PASS" starttime="20221231 11:30:34.697" endtime="20221231 11:30:34.697"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.686" endtime="20221231 11:30:34.697"/>
+</test>
+<test id="s1-t5" name="User should not be able to delete not existing file" line="47">
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestDeleteNotExisting</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.697" endtime="20221231 11:30:34.700"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.697" endtime="20221231 11:30:34.700"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>404</arg>
+<status status="PASS" starttime="20221231 11:30:34.700" endtime="20221231 11:30:34.700"/>
+</kw>
+<kw name="Delete Logtext File" library="LogTextKeywords">
+<arg>root/LogtextTestDeleteNotExisting</arg>
+<kw name="Delete Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.700" endtime="20221231 11:30:34.702"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.700" endtime="20221231 11:30:34.702"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>404</arg>
+<status status="PASS" starttime="20221231 11:30:34.703" endtime="20221231 11:30:34.703"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.697" endtime="20221231 11:30:34.703"/>
+</test>
+<test id="s1-t6" name="User should be able to find log text file" line="53">
+<kw name="Create Logtext File" library="LogTextKeywords">
+<arg>root</arg>
+<arg>LogtextReadTest</arg>
+<kw name="Create New Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${name}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.703" endtime="20221231 11:30:34.706"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.703" endtime="20221231 11:30:34.707"/>
+</kw>
+<kw name="Find Logtext File" library="LogTextKeywords">
+<arg>root/LogtextReadTest</arg>
+<kw name="Find Existing Logtext File" library="LogTextLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${path}</arg>
+<status status="PASS" starttime="20221231 11:30:34.707" endtime="20221231 11:30:34.716"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.707" endtime="20221231 11:30:34.716"/>
+</kw>
+<kw name="Logtext Status Should Be" library="LogTextLibrary">
+<arg>200</arg>
+<status status="PASS" starttime="20221231 11:30:34.716" endtime="20221231 11:30:34.716"/>
+</kw>
+<status status="PASS" starttime="20221231 11:30:34.703" endtime="20221231 11:30:34.716"/>
+</test>
+<doc>A test suite for valid login.
+
+Keywords are imported from the resource file</doc>
+<status status="PASS" starttime="20221231 11:30:34.605" endtime="20221231 11:30:34.717"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="LogTextTestSuite">LogTextTestSuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

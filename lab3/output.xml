@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.8 on darwin)" generated="20230107 23:34:13.226" rpa="false" schemaversion="3">
+<suite id="s1" name="LogtextFileTestSuite" source="/Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/tests/LogtextFileTestSuite.robot">
+<test id="s1-t1" name="User should be able to create log text file" line="13">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>post</arg>
+<arg>logtextfile</arg>
+<arg>root</arg>
+<arg>LogtextTestCreate</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.242" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py post logtextfile root LogtextTestCreate</msg>
+<msg timestamp="20230107 23:34:13.245" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.325" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:13.325" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:13.242" endtime="20230107 23:34:13.325"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:13.325" endtime="20230107 23:34:13.326"/>
+</kw>
+<status status="PASS" starttime="20230107 23:34:13.241" endtime="20230107 23:34:13.326"/>
+</test>
+<test id="s1-t2" name="User should be able to move file" line="17">
+<kw name="Run Process" library="Process">
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>post</arg>
+<arg>directory</arg>
+<arg>root</arg>
+<arg>DirLogtextTestMove</arg>
+<arg>100</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.326" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py post directory root DirLogtextTestMove 100</msg>
+<msg timestamp="20230107 23:34:13.329" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.420" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230107 23:34:13.326" endtime="20230107 23:34:13.420"/>
+</kw>
+<kw name="Run Process" library="Process">
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>post</arg>
+<arg>logtextfile</arg>
+<arg>root</arg>
+<arg>LogtextTestMove</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.421" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py post logtextfile root LogtextTestMove</msg>
+<msg timestamp="20230107 23:34:13.423" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.505" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230107 23:34:13.420" endtime="20230107 23:34:13.506"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>patch</arg>
+<arg>logtextfile</arg>
+<arg>move_from\=root/LogtextTestMove</arg>
+<arg>move_to\=root/DirLogtextTestMove</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.506" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py patch logtextfile move_from=root/LogtextTestMove move_to=root/DirLogtextTestMove</msg>
+<msg timestamp="20230107 23:34:13.509" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.608" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:13.608" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:13.506" endtime="20230107 23:34:13.608"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:13.608" endtime="20230107 23:34:13.609"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>get</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextTestMove</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.609" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py get logtextfile path=root/LogtextTestMove</msg>
+<msg timestamp="20230107 23:34:13.612" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.696" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:13.696" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:13.609" endtime="20230107 23:34:13.696"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 404</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:13.696" endtime="20230107 23:34:13.696"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>get</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/DirLogtextTestMove/LogtextTestMove</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.697" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py get logtextfile path=root/DirLogtextTestMove/LogtextTestMove</msg>
+<msg timestamp="20230107 23:34:13.699" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.780" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:13.781" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:13.696" endtime="20230107 23:34:13.781"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:13.781" endtime="20230107 23:34:13.781"/>
+</kw>
+<status status="PASS" starttime="20230107 23:34:13.326" endtime="20230107 23:34:13.781"/>
+</test>
+<test id="s1-t3" name="User should be abble to append a line to the end of the file" line="29">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>post</arg>
+<arg>logtextfile</arg>
+<arg>root</arg>
+<arg>LogtextTestAppend</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.782" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py post logtextfile root LogtextTestAppend</msg>
+<msg timestamp="20230107 23:34:13.784" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.862" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:13.862" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:13.782" endtime="20230107 23:34:13.862"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:13.862" endtime="20230107 23:34:13.863"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>put</arg>
+<arg>logtextfile</arg>
+<arg>root/LogtextTestAppend</arg>
+<arg>TestAppend</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.863" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py put logtextfile root/LogtextTestAppend TestAppend</msg>
+<msg timestamp="20230107 23:34:13.865" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:13.946" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:13.946" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:13.863" endtime="20230107 23:34:13.946"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>get</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextTestAppend</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:13.947" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py get logtextfile path=root/LogtextTestAppend</msg>
+<msg timestamp="20230107 23:34:13.950" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.029" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.029" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:13.946" endtime="20230107 23:34:14.029"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.029" endtime="20230107 23:34:14.030"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>TestAppend</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.030" endtime="20230107 23:34:14.030"/>
+</kw>
+<status status="PASS" starttime="20230107 23:34:13.781" endtime="20230107 23:34:14.030"/>
+</test>
+<test id="s1-t4" name="User should be able to delete file" line="39">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>post</arg>
+<arg>logtextfile</arg>
+<arg>root</arg>
+<arg>LogtextTestDelete</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.031" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py post logtextfile root LogtextTestDelete</msg>
+<msg timestamp="20230107 23:34:14.033" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.113" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.113" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:14.031" endtime="20230107 23:34:14.113"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.113" endtime="20230107 23:34:14.114"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>get</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextTestDelete</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.114" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py get logtextfile path=root/LogtextTestDelete</msg>
+<msg timestamp="20230107 23:34:14.116" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.197" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.197" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:14.114" endtime="20230107 23:34:14.197"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.197" endtime="20230107 23:34:14.198"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>delete</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextTestDelete</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.198" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py delete logtextfile path=root/LogtextTestDelete</msg>
+<msg timestamp="20230107 23:34:14.200" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.277" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.277" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:14.198" endtime="20230107 23:34:14.277"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.278" endtime="20230107 23:34:14.278"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>get</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextTestDelete</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.278" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py get logtextfile path=root/LogtextTestDelete</msg>
+<msg timestamp="20230107 23:34:14.281" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.358" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.358" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:14.278" endtime="20230107 23:34:14.358"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 404</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.358" endtime="20230107 23:34:14.359"/>
+</kw>
+<status status="PASS" starttime="20230107 23:34:14.030" endtime="20230107 23:34:14.359"/>
+</test>
+<test id="s1-t5" name="User should not be able to delete not existing file" line="52">
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>get</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextTestDeleteNotExisting</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.359" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py get logtextfile path=root/LogtextTestDeleteNotExisting</msg>
+<msg timestamp="20230107 23:34:14.362" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.438" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.438" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:14.359" endtime="20230107 23:34:14.438"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 404</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.439" endtime="20230107 23:34:14.439"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>delete</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextTestDeleteNotExisting</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.439" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py delete logtextfile path=root/LogtextTestDeleteNotExisting</msg>
+<msg timestamp="20230107 23:34:14.442" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.518" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.518" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:14.439" endtime="20230107 23:34:14.518"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 404</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.519" endtime="20230107 23:34:14.519"/>
+</kw>
+<status status="PASS" starttime="20230107 23:34:14.359" endtime="20230107 23:34:14.519"/>
+</test>
+<test id="s1-t6" name="User should be able to find log text file" line="59">
+<kw name="Run Process" library="Process">
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>post</arg>
+<arg>logtextfile</arg>
+<arg>root</arg>
+<arg>LogtextReadTest</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.520" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py post logtextfile root LogtextReadTest</msg>
+<msg timestamp="20230107 23:34:14.523" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.622" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230107 23:34:14.519" endtime="20230107 23:34:14.622"/>
+</kw>
+<kw name="Run Process" library="Process">
+<var>${result}</var>
+<arg>python3</arg>
+<arg>${path}</arg>
+<arg>get</arg>
+<arg>logtextfile</arg>
+<arg>path\=root/LogtextReadTest</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230107 23:34:14.623" level="INFO">Starting process:
+python3 /Users/valeria/Documents/qa/qa-kp02-kryvosheieva/lab3/cli.py get logtextfile path=root/LogtextReadTest</msg>
+<msg timestamp="20230107 23:34:14.625" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230107 23:34:14.700" level="INFO">Process completed.</msg>
+<msg timestamp="20230107 23:34:14.701" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<status status="PASS" starttime="20230107 23:34:14.622" endtime="20230107 23:34:14.701"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>Status code: 200</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230107 23:34:14.701" endtime="20230107 23:34:14.701"/>
+</kw>
+<status status="PASS" starttime="20230107 23:34:14.519" endtime="20230107 23:34:14.701"/>
+</test>
+<doc>A test suite for valid login.
+
+Keywords are imported from the resource file</doc>
+<status status="PASS" starttime="20230107 23:34:13.227" endtime="20230107 23:34:14.702"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="LogtextFileTestSuite">LogtextFileTestSuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
